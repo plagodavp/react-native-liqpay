@@ -4,4 +4,3 @@
 @interface RNLiqpay : RCTViewManager
 
 @end
-

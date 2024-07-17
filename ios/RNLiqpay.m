@@ -1,8 +1,8 @@
 #import "RNLiqpay.h"
 #import "RNLiqpayView.h"
-#import "RCTModalManager.h"
-#import "RCTShadowView.h"
-#import "RCTUtils.h"
+#import <React/RCTModalManager.h>
+#import <React/RCTShadowView.h>
+#import <React/RCTUtils.h>
 
 @implementation RNLiqpay
 {
@@ -15,8 +15,8 @@ RCT_EXPORT_MODULE()
 {
     return [[RNLiqpayView alloc] init];
 }
-RCT_EXPORT_VIEW_PROPERTY(type, NSString)
 
+RCT_EXPORT_VIEW_PROPERTY(type, NSString)
 RCT_EXPORT_VIEW_PROPERTY(onLiqpaySuccess, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onLiqpayError, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(params, NSDictionary)
@@ -26,4 +26,3 @@ RCT_EXPORT_VIEW_PROPERTY(privateKey, NSString)
 RCT_EXPORT_VIEW_PROPERTY(path, NSString)
 
 @end
-

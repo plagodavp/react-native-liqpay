@@ -3,7 +3,7 @@
 #import "RNLiqpayView.h"
 #import "RNLiqpayInteractor.h"
 
-@interface RNLiqpayController : UIViewController<LiqPayCallBack>
+@interface RNLiqpayController : UIViewController <LiqPayCallBack>
 
 - (instancetype)initWithBridgeView:(id<RNLiqpayInteractor>)bridgeView;
 

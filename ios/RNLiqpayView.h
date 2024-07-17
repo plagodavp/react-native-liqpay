@@ -1,9 +1,7 @@
 #import <UIKit/UIKit.h>
-
 #import <React/RCTInvalidating.h>
-#import "RNLiqpayInteractor.h"
-
 #import <React/RCTView.h>
+#import "RNLiqpayInteractor.h"
 
 @class RCTBridge;
 @class RCTModalHostViewController;
@@ -11,7 +9,7 @@
 
 @protocol RCTModalHostViewInteractor;
 
-@interface RNLiqpayView : UIView <RCTInvalidating, RNLiqpayInteractor>
+@interface RNLiqpayView : RCTView <RCTInvalidating, RNLiqpayInteractor>
 
 @property (nonatomic, copy) RCTBubblingEventBlock onLiqpaySuccess;
 @property (nonatomic, copy) RCTBubblingEventBlock onLiqpayError;
@@ -24,4 +22,3 @@
 @property (nonatomic, copy) NSString *path;
 
 @end
-

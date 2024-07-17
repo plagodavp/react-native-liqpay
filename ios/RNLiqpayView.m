@@ -1,14 +1,13 @@
 #import "RNLiqpayView.h"
 
 #import <UIKit/UIKit.h>
-
+#import <React/RCTAssert.h>
+#import <React/RCTTouchHandler.h>
+#import <React/RCTUIManager.h>
+#import <React/RCTUtils.h>
+#import <React/UIView+React.h>
 #import "Liqpay/LiqpayMob.h"
-#import "RCTAssert.h"
 #import "RNLiqpayController.h"
-#import "RCTTouchHandler.h"
-#import "RCTUIManager.h"
-#import "RCTUtils.h"
-#import "UIView+React.h"
 
 @implementation RNLiqpayView
 {
@@ -24,7 +23,7 @@
         _liqpayObject = [[LiqpayMob alloc] initLiqPayWithDelegate:_liqpayController];
         _isPresented = NO;
     }
-    
+
     return self;
 }
 
@@ -39,12 +38,12 @@
 - (void)didMoveToWindow
 {
     [super didMoveToWindow];
-    
+
     if (!_isPresented && self.window) {
         RCTAssert(self.reactViewController, @"Can't present modal view controller without a presenting view controller");
-        
+
         dispatch_block_t completionBlock = nil;
-        
+
         if ([self.type isEqualToString:@"checkout"]) {
             completionBlock = ^{
                 [_liqpayObject checkout:self.params
@@ -72,8 +71,7 @@
                           delegate:_liqpayController];
             };
         }
-        
-        
+
         [[self reactViewController] presentViewController:_liqpayController animated:YES completion:completionBlock];
         _isPresented = YES;
     }
